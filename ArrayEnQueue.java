@@ -15,18 +15,28 @@ public int size()
 public void enQueue(int data)
 {
 
-// Type your code here
-
+if (isFull())
+{
+System.out.println("Queue is Overflow. Not possible to insert in Full Queue");
+display();
+}
+else
+{
+queue[++rear] = data;
+System.out.println("Element is inserted");
+}
 }
 public boolean isFull()
 {
 
-// Type your code here
+return (size()==capacity);
+
 }
 public boolean isEmpty()
 {
 
-// Type your code here
+return (front==rear);
+
 }
 
 
@@ -51,7 +61,17 @@ int data;
      System.out.println("EnQueue Using Array");
     System.out.println("Enter the number of elements to be inserted:");
 
-// Type your code here
-
-
-} 
+n=sc.nextInt();
+    ArrayEnQueue q=new ArrayEnQueue(n);
+    do
+    {
+System.out.println("Enter the element to insert:");
+        data=sc.nextInt();
+q.enQueue(data);
+System.out.println("Do you want to insert(y/n):");
+ch=sc.next().charAt(0);
+}
+while(ch!='n');
+q.display();
+}
+}
